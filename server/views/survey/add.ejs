@@ -2,7 +2,7 @@
     <%- include ../partials/main_nav.ejs %>
         <main class="container">
           <form method="POST" action="/survey-list/add">
-            <h1 class="display-4"><%= title %></h1>
+            <h1 class="display-4">Add a Survey</h1>
             <!--<a href="/survey-list/add" class="btn btn-primary" role="button">
             <i class="fas fa-plus-circle"></i> Add a survey</a>-->
            <div class="form-row">
@@ -23,7 +23,7 @@
                 <input name="expirydate" type="date" class="form-control" id="inputExDate">
             </div>
              <div class="form-group col-md-12">
-                <label for="inputQuestion" >Questions</label>
+                <label for="inputQuestion" > Sample Questions</label>
                 <textarea name="questions" type="string" class="form-control" id="inputQuestion"></textarea>
             </div>
             

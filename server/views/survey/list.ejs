@@ -1,10 +1,13 @@
 <%- include ../partials/header.ejs %>
     <%- include ../partials/main_nav.ejs %>
         <main class="container">
-            <h1 class="display-4"><%= title %></h1>
-            <a href="/survey-list/add" class="btn btn-primary" role="button">
-            <i class="fas fa-plus-circle" ></i> Add a survey</a>
+            <h1 class="display-4">List of Surveys</h1>
+            <br>
+            <a href="/survey-list/add" class="btn btn-secondary" role="button">
+            <i class="fas fa-plus" ></i> Add a survey</a>
+            <br>
             <table class="table table-hover">
+            <br>
                 <thead>
                     <tr>
                         <th scope="col">Title of Survey</th>
@@ -27,12 +30,12 @@
                             <td><%= surveyList[count].type %></td>
                             <td><%= surveyList[count].questions %></td>
                             <td>
-                                <a href="/survey-list/edit/<%= surveyList[count]._id %>" class="btn btn-primary btn-sm">
-                                <i class="fas fa-pencil-alt"></i> Edit</a>
+                                <a href="/survey-list/edit/<%= surveyList[count]._id %>" class="btn btn-warning btn-sm">
+                                 Edit</a>
                             </td>
                             <td>
-                                <a href="/survey-list/delete/<%= surveyList[count]._id %>" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i> Delete</a>
+                                <a href="/survey-list/delete/<%= surveyList[count]._id %>" class="btn btn-dark btn-sm">
+                               Delete</a>
                             </td>
                         </tr>
                         <%}%>
