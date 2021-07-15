@@ -17,6 +17,7 @@ mongoDB.once('open', ()=>{
   console.log("Connected to MongoDB...");
 });
 let indexRouter = require('../routes/index');
+let surveyRouter = require('../routes/survey');
 
 
 let app = express();
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
+app.use('/survey-list', surveyRouter);
 
 
 // catch 404 and forward to error handler
