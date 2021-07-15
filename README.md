@@ -1,2 +1,2 @@
 # COMM229
-Portfolio assignment
+Group Assignment 1
