@@ -8,8 +8,8 @@ let questionSchema = mongoose.Schema({
 
 let surveyModel = mongoose.Schema({
     name: String,
-    created: Date,
-    expiry: Date,
+    created: String,
+    expiry: String,
     type: String,
     surveyQuestion: [questionSchema]
 },

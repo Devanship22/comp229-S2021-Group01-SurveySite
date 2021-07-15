@@ -1,0 +1,34 @@
+<%- include ../partials/header.ejs %>
+    <%- include ../partials/main_nav.ejs %>
+        <main class="container">
+          <form method="POST" action="/survey-list/add">
+            <h1 class="display-4"><%= title %></h1>
+            <!--<a href="/survey-list/add" class="btn btn-primary" role="button">
+            <i class="fas fa-plus-circle"></i> Add a survey</a>-->
+           <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName">Survey name</label>
+                <input name="name" type="text" class="form-control" id="inputName">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputType">Survey Type</label>
+                <input name="type" type="text" class="form-control" id="inputType">
+            </div>
+             <div class="form-group col-md-6">
+                <label for="inputCrDate">Current Date</label>
+                <input name="currentdate" type="date" class="form-control" id="inputCrDate">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputExDate">Expiry Date</label>
+                <input name="expirydate" type="date" class="form-control" id="inputExDate">
+            </div>
+             <div class="form-group col-md-6">
+                <label for="inputQuestion">Questions</label>
+                <input name="question" type="string" class="form-control" id="inputQuestion">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Add</button>
+    </form>
+        </main>
+        <%- include ../partials/bottom_nav.ejs %>
+            <%- include ../partials/footer.ejs %>
