@@ -25,16 +25,14 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
-   /* let questionSchema = Survey({
-       "question":req.body.question,
-        "options":
-    })*/
+  
     let newSurvey = Survey({
         "name": req.body.name,
         "type": req.body.type,
         "created": req.body.currentdate,
         "expiry": req.body.expirydate,
-       
+        "questions": req.body.questions
+          
     });
 
     Survey.create(newSurvey, (err, Survey) =>{
