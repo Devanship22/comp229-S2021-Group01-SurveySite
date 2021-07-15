@@ -12,7 +12,10 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="inputType">Survey Type</label>
-                <input name="type" type="text" class="form-control" id="inputType">
+                 <select class="form-control" id="type" name="type">
+                   <option>Agree/Disagree</option>
+                <option>Short Answer</option>
+            </select>
             </div>
              <div class="form-group col-md-6">
                 <label for="inputCrDate">Current Date</label>
@@ -26,11 +29,13 @@
                 <label for="inputQuestion" > Sample Questions</label>
                 <textarea name="questions" type="string" class="form-control" id="inputQuestion"></textarea>
             </div>
-            
-            
+              
         </div>
         <button type="submit" class="btn btn-dark">Add</button>
     </form>
         </main>
+        <br>
+        <br>
+        <br>
         <%- include ../partials/bottom_nav.ejs %>
             <%- include ../partials/footer.ejs %>

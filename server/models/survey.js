@@ -13,6 +13,7 @@ let surveyModel = mongoose.Schema({
     type: String,
     questions: String,
 },
+  
 {
     collection:"surveys"
 });

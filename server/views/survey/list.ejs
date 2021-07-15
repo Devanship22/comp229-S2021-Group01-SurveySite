@@ -15,20 +15,20 @@
                         <th scope="col">Expiry Date</th>
                         <th scope="col">Type of Survey</th>
                         <th scope="col">Sample Questions</th>
+                        <th scope="col">Sample Answers</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-
-                        <!---->
-                        <% for(let count=0; count<surveyList.length; count++){%>
+                            <% for(let count=0; count<surveyList.length; count++){%>
                             <td><%= surveyList[count].name %></td>
                             <td><%= surveyList[count].created %></td>
                             <td><%= surveyList[count].expiry %></td>
                             <td><%= surveyList[count].type %></td>
                             <td><%= surveyList[count].questions %></td>
+                          
                             <td>
                                 <a href="/survey-list/edit/<%= surveyList[count]._id %>" class="btn btn-warning btn-sm">
                                  Edit</a>
