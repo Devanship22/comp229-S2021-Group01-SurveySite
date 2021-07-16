@@ -12,6 +12,7 @@ let surveyModel = mongoose.Schema({
     expiry: String,
     type: String,
     questions: String,
+    answer: String
 },
   
 {

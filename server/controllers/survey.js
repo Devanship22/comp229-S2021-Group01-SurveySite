@@ -31,7 +31,8 @@ module.exports.processAddPage = (req, res, next) => {
         "type": req.body.type,
         "created": req.body.currentdate,
         "expiry": req.body.expirydate,
-        "questions": req.body.questions
+        "questions": req.body.questions,
+        "answer":req.body.answer
           
     });
 

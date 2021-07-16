@@ -15,9 +15,9 @@
                         <th scope="col">Expiry Date</th>
                         <th scope="col">Type of Survey</th>
                         <th scope="col">Sample Questions</th>
-                        <th scope="col">Sample Answers</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col">Answer</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +28,7 @@
                             <td><%= surveyList[count].expiry %></td>
                             <td><%= surveyList[count].type %></td>
                             <td><%= surveyList[count].questions %></td>
+                            <td><%= surveyList[count].answer %></td>
                           
                             <td>
                                 <a href="/survey-list/edit/<%= surveyList[count]._id %>" class="btn btn-warning btn-sm">
