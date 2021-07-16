@@ -1,0 +1,46 @@
+<%- include ../partials/header.ejs %>
+    <%- include ../partials/main_nav.ejs %>
+        <main class="container">
+          <form method="POST" action="/survey-list/<%= survey !== null ? 'edit/'+survey.id : 'add' %>">
+            <h1 class="display-4">Edit Survey</h1>
+            <!--<a href="/survey-list/add" class="btn btn-primary" role="button">
+            <i class="fas fa-plus-circle"></i> Add a survey</a>-->
+           <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName">Survey name</label>
+                <input name="name" type="text" class="form-control" id="inputName" value="<%= survey !== null ? survey.name : '' %>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputType">Survey Type</label>
+                 <select class="form-control" id="type" name="type" value="<%= survey !== null ? survey.type : '' %>">
+                   <option>Agree/Disagree</option>
+                <option>Short Answer</option>
+            </select>
+            </div>
+             <div class="form-group col-md-6">
+                <label for="inputCrDate">Current Date</label>
+                <input name="currentdate" type="date" class="form-control" id="inputCrDate" value="<%= survey !== null ? survey.created : '' %>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputExDate">Expiry Date</label>
+                <input name="expirydate" type="date" class="form-control" id="inputExDate" value="<%= survey !== null ? survey.expiry : '' %>">
+            </div>
+             <div class="form-group col-md-12">
+                <label for="inputQuestion" > Sample Questions</label>
+                <textarea name="questions" type="string" class="form-control" id="inputQuestion"><%= survey !== null ? survey.questions : '' %></textarea>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="inputAnswer" >Answer</label>
+                <textarea name="answer" type="string" class="form-control" id="inputAnswer"><%= survey !== null ? survey.answer : '' %></textarea>
+            </div>
+              
+        </div>
+        <a href="/survey-list" class="btn btn-light">Cancel</a>
+        <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+        </main>
+        <br>
+        <br>
+        <br>
+        <%- include ../partials/bottom_nav.ejs %>
+            <%- include ../partials/footer.ejs %>
