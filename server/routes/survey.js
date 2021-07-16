@@ -10,4 +10,7 @@ router.get('/add', surveyController.displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
 router.post('/add', surveyController.processAddPage);
+
+/* GET to perform Deletion - DELETE Operation */
+router.get('/delete/:id',  surveyController.performDelete);
 module.exports = router;

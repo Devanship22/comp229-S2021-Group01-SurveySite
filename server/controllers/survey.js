@@ -48,5 +48,24 @@ module.exports.processAddPage = (req, res, next) => {
             res.redirect('/survey-list');
         }
     });
+    
 
+}
+//Delete the survey 
+module.exports.performDelete = (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.remove({_id: id}, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //refresh the survey list
+            res.redirect('/survey-list');
+        }
+
+    });
 }
