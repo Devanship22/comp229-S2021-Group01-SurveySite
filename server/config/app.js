@@ -3,13 +3,14 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+const session = require('express-session');
 
 //database setup
 let mongoose = require('mongoose');
 let DB = require('./db');
 
 //point mongoose to the DB URI
-mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
 
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection error'));
@@ -18,7 +19,6 @@ mongoDB.once('open', ()=>{
 });
 let indexRouter = require('../routes/index');
 let surveyRouter = require('../routes/survey');
-
 
 let app = express();
 
@@ -29,7 +29,14 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(process.env.SECRET || "secretkey12345"));
+app.use(session({ cookie: { maxAge: 60000 }, secret: process.env.SECRET || "secretkey12345", saveUninitialized: true, resave: false}));
+// Flash messages middleware
+app.use((req, res, next) => {
+  res.locals.message = req.session.message;
+  delete req.session.message;
+  next();
+});
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
