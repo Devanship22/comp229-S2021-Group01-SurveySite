@@ -1,3 +1,5 @@
+/*File Name: survey.js, Student Names: Runali Patel - 301110236, Muksud Mahi - 301155894, Devanishi Patel - 301144152,
+Tanisha Sharma - 300882730 , Sabah Hussein - 301161377 Date:14/07/2021 */
 let express = require("express");
 
 //connect to our survey model
@@ -30,7 +32,7 @@ module.exports.processAddPage = async (req, res, next) => {
       created: currentdate,
       expiry: expirydate,
       questions: questions,
-      answer: answer,
+     // answer: answer,
     });
   
     await Survey.create(newSurvey);

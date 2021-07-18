@@ -1,11 +1,7 @@
-/*Custom css*/
-/*.jumbotron {
-    padding: 2rem 1 rem;
-    margin-bottom: 2rem;
-    background-color: #e9ecef;
-    border-radius: .3rem;
-}*/
+/*File Name: App.css, Student Names: Runali Patel - 301110236, Muksud Mahi - 301155894, Devanishi Patel - 301144152,
+Tanisha Sharma - 300882730 , Sabah Hussein - 301161377 Date:14/07/2021 */
 
+/*Delete Alert*/
 .alert {
     z-index: 9999;
     position: fixed;

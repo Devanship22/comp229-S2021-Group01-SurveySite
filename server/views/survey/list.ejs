@@ -1,3 +1,5 @@
+<!--List a Survey form with the CRUD functionality display-->
+<html>
 <%- include ../partials/header.ejs %>
     <%- include ../partials/main_nav.ejs %>
         <main class="container">
@@ -16,9 +18,8 @@
                         <th scope="col">Expiry Date</th>
                         <th scope="col">Type of Survey</th>
                         <th scope="col">Sample Questions</th>
-                        <th scope="col">Answer</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Edit Record</th>
+                        <th scope="col">Delete Record</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +30,7 @@
                             <td><%= surveyList[count].expiry %></td>
                             <td><%= surveyList[count].type %></td>
                             <td><%= surveyList[count].questions %></td>
-                            <td><%= surveyList[count].answer %></td>
+                         <!--   <td><%= surveyList[count].answer %></td>-->
                           
                             <td>
                                 <a href="/survey-list/edit/<%= surveyList[count]._id %>" class="btn btn-warning btn-sm">
@@ -49,3 +50,4 @@
         <br>
         <%- include ../partials/bottom_nav.ejs %>
             <%- include ../partials/footer.ejs %>
+            </html>
