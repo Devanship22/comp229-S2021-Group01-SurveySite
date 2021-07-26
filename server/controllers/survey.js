@@ -1,47 +1,52 @@
+/*File Name: survey.js, Student Names:Runali Patel - 301110236, Muksud Hussain Mahi - 301155894, Devanshi Patel – 301161377 , 
+Tanisha Sharma - 301144152, Sabah Hussein - 300882730 Date:14/07/2021 */
 let express = require("express");
 
 //connect to our survey model
 let Survey = require("../models/survey");
 
-module.exports.displaySurveyList = (req, res, next) => {
-  Survey.find((err, surveyList) => {
-    if (err) {
-      return console.error(err);
-    } else {
-      //console.log(surveyList);
-      res.render("survey/list", { title: "Survey", surveyList: surveyList });
-    }
-  });
+//Render survey list page
+module.exports.displaySurveyList = async (req, res, next) => {
+  try {
+    const surveyList = await Survey.find();
+    res.render("survey/list", { title: "Survey", surveyList: surveyList });
+  } catch (error) {
+    next(error)
+  }
 };
+//Renders add survey page
 module.exports.displayAddPage = (req, res, next) => {
   res.render("survey/add", { title: "Add a Survey" });
 };
-
-module.exports.processAddPage = (req, res, next) => {
-  const { name, type, currentdate, expirydate, questions, answer } = req.body;
-  const isValidRequest = validateSurveyData(req);
-  if (!isValidRequest) {
-    return res.redirect("back");
-  }
-  let newSurvey = Survey({
-    name: name,
-    type: type,
-    created: currentdate,
-    expiry: expirydate,
-    questions: questions,
-    answer: answer,
-  });
-
-  Survey.create(newSurvey, (err, Survey) => {
-    if (err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      // refresh the book list
-      res.redirect("/survey-list");
+//Creates the survey
+module.exports.processAddPage = async (req, res, next) => {
+  try {
+    const { name, type, currentdate, expirydate, questions, answer } = req.body;
+    const isValidRequest = validateSurveyData(req);
+    if (!isValidRequest) {
+      return res.redirect("back");
     }
-  });
+    let newSurvey = Survey({
+      name: name,
+      type: type,
+      created: currentdate,
+      expiry: expirydate,
+      questions: questions,
+     // answer: answer,
+    });
+  
+    await Survey.create(newSurvey);
+    req.session.message = {
+      type: "success",
+      title: "Action success",
+      details: "Survey has been created successfully",
+    };
+    res.redirect("/survey-list");
+  } catch (error) {
+    next(error)
+  }
 };
+//Renders edit survey page
 module.exports.displayEditPage = async (req, res, next) => {
   try {
     const survey = await Survey.findById(req.params.id);
@@ -50,6 +55,7 @@ module.exports.displayEditPage = async (req, res, next) => {
     next(error);
   }
 };
+//Update the survey
 module.exports.processEditPage = async (req, res, next) => {
   try {
     const { name, type, currentdate, expirydate, questions, answer } = req.body;
@@ -100,10 +106,12 @@ function validateSurveyData(req) {
     errorInfo = "Expiry date can't be less than current date";
     isValid = false;
   }
-  req.session.message = {
-    type: "danger",
-    title: "Action failed",
-    details: errorInfo,
-  };
+  if(!isValid){
+    req.session.message = {
+      type: "danger",
+      title: "Action failed",
+      details: errorInfo,
+    };
+  }
   return isValid;
 }
