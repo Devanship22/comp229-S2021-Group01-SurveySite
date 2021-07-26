@@ -9,14 +9,16 @@ let Survey = require("../models/survey");
 module.exports.displaySurveyList = async (req, res, next) => {
   try {
     const surveyList = await Survey.find();
-    res.render("survey/list", { title: "Survey", surveyList: surveyList });
+    res.render("survey/list", { title: "Survey", surveyList: surveyList, 
+    displayName: req.user ? req.user.displayName : '' });
   } catch (error) {
     next(error)
   }
 };
 //Renders add survey page
 module.exports.displayAddPage = (req, res, next) => {
-  res.render("survey/add", { title: "Add a Survey" });
+  res.render("survey/add", { title: "Add a Survey" ,
+  displayName: req.user ? req.user.displayName : ''});
 };
 //Creates the survey
 module.exports.processAddPage = async (req, res, next) => {
@@ -50,7 +52,8 @@ module.exports.processAddPage = async (req, res, next) => {
 module.exports.displayEditPage = async (req, res, next) => {
   try {
     const survey = await Survey.findById(req.params.id);
-    return res.render("survey/edit", { title: "Survey", survey });
+    return res.render("survey/edit", { title: "Survey", survey,
+    displayName: req.user ? req.user.displayName : '' });
   } catch (error) {
     next(error);
   }
