@@ -1,0 +1,48 @@
+/*File Name: homepage.css, Student Names :Runali Patel - 301110236, Muksud Hussain Mahi - 301155894, Devanshi Patel – 301161377 , 
+Tanisha Sharma - 301144152, Sabah Hussein - 300882730 Date:09/08/2021 */
+.masthead-heading,
+.masthead-intro
+ {
+  text-align: center;
+}
+.masthead
+{
+  padding: 6em 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.masthead-intro 
+{
+    margin-bottom: 0.1em;
+    font-family: "Gentium Book Basic", Georgia, serif;
+    font-size: 2em;
+}
+.masthead-heading 
+{
+    color: #FF8C00;
+    margin-top: -0.2em;
+    font-family: "Times New Roman";
+    font-weight: bold;
+    font-size: 6em;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.masthead-heading,
+.masthead-intro 
+{
+  text-align: center;
+}
+
+
+
+a 
+{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+  
+

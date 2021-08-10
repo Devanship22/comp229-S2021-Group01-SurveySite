@@ -1,23 +1,10 @@
 <%- include ../partials/header.ejs %>
     <%- include ../partials/main_nav.ejs %>
-        <main class="container">
-            <!--Message area-->
-            <% if(messages.length> 0) { %>
-                <div class="alert alert-danger">
-                    <%= messages %>
-                </div>
-                <%}%>
-
-                    <div class="title-box text-center">
-                        <h3 class="title-a">
-                            <%=title%>
-                        </h3>
-                        <div class="line-mf"></div>
-                    </div>
-
+     <link rel='stylesheet' href='/Content/login.css' />
+        <main class="jumbotron fluid" style = "background-color:#FFEBCD;">
                     <div class="row">
                         <div class="offset-md-4 col-md-4">
-                            <h1>Please Register</h1>
+                            <h1>Register Here!</h1>
                             <form action="" method="POST" autocomplete="off">
                                 <fieldset class="form-group">
                                     <label for="username"></label>
@@ -46,10 +33,10 @@
                                         placeholder="Enter password" id="password" required>
                                 </fieldset>
 
-                                <fieldset class="form-group text-right">
-                                    <input type="submit" class="btn btn-success" value="Register">
+                                <fieldset class="form-group text-right"  style = "position:relative; right:28%; top:2px;">
+                                    <input type="submit" class="btn btn-outline-info" value="Register">
                                     <a href="/">
-                                        <input type="button" class="btn btn-warning" value="Cancel">
+                                        <input type="button" class="btn btn-outline-danger" value="Cancel">
                                     </a>
                                 </fieldset>
 

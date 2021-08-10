@@ -9,9 +9,15 @@ let passport = require('passport');
 let userModel = require('../models/user');
 let User = userModel.User;
 
+
 module.exports.displayHomePage = (req, res, next) => {
     res.render('index', { title: 'Survey Site', displayName: req.user ? req.user.displayName : '' });
 }
+//added about us page controller
+module.exports.displayAboutUs = (req, res, next) => {
+    res.render('aboutus', { title: 'About Survey Site', displayName: req.user ? req.user.displayName : '' });
+}
+
 
 /*Handlers for User Login & Registration*/
 module.exports.displayLoginPage = (req, res, next) => {

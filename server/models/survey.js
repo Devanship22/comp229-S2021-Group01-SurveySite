@@ -2,12 +2,6 @@
 Tanisha Sharma - 301144152, Sabah Hussein - 300882730 Date:15/07/2021 */
 let mongoose = require('mongoose');
 
-//Create a model class
-/*let questionSchema = mongoose.Schema({
-    question:String,
-    options:Array
-})*/
-
 let surveyModel = mongoose.Schema({
     name: String,
     created: String,

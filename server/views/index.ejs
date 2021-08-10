@@ -1,10 +1,14 @@
+<!---Includes content of the homepage of the website-->
 <%- include partials/header.ejs %>
 <%- include partials/main_nav.ejs %>
-    <main class="container">
-      <div class="jumbotron fluid">
-        <h1 class="display-4" style ="text-align:center">Welcome to <%= title %></h1>
+ <link rel='stylesheet' href='/Content/homepage.css' />
+     <div class="jumbotron fluid" style = "background-color: #FFEBCD;">
+       <header class='masthead'>
+  <p class='masthead-intro'>Welcome to </p>
+  <h1 class='masthead-heading'>Survey Pirates!</h1>
+
+</header> 
       </div>
-    </main>
 <%- include partials/bottom_nav.ejs %>
 <%- include partials/footer.ejs %>
 

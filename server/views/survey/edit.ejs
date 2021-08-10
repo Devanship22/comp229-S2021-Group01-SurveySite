@@ -1,13 +1,12 @@
+<link rel='stylesheet' href='/Content/list.css' />
 <!--Edit a Survey form-->
 <html>
 <%- include ../partials/header.ejs %>
     <%- include ../partials/main_nav.ejs %>
-        <main class="container">
+        <main class="jumbotron fluid" style = "background-color:#FFEBCD;">
           <form method="POST" action="/survey-list/<%= survey !== null ? 'edit/'+survey.id : 'add' %>">
             <h1 class="display-4">Edit Survey</h1>
-            <!--<a href="/survey-list/add" class="btn btn-primary" role="button">
-            <i class="fas fa-plus-circle"></i> Add a survey</a>-->
-           <div class="form-row">
+                    <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputName">Survey name</label>
                 <input name="name" type="text" class="form-control" id="inputName" value="<%= survey !== null ? survey.name : '' %>">
@@ -30,20 +29,18 @@
              <div class="form-group col-md-12">
                 <label for="inputQuestion" > Sample Questions</label>
                 <textarea name="questions" type="string" class="form-control" id="inputQuestion"><%= survey !== null ? survey.questions : '' %></textarea>
-            </div>
-          <!--  <div class="form-group col-md-12">
-                <label for="inputAnswer" >Answer</label>
-                <textarea name="answer" type="string" class="form-control" id="inputAnswer"><%= survey !== null ? survey.answer : '' %></textarea>
-            </div>-->
-              
+            </div>               
         </div>
-        <a href="/survey-list" class="btn btn-light">Cancel</a>
-        <button type="submit" class="btn btn-dark">Update</button>
+         <div style = "position:relative; left:45%; top:2px;">
+        <button type="submit"class="btn btn-outline-info">Update</button>
+        <a href="/survey-list" class="btn btn-outline-danger">Cancel</a>
+        </div>
     </form>
+      <br>
+        <br>
+        <br>
         </main>
-        <br>
-        <br>
-        <br>
+      
         <%- include ../partials/bottom_nav.ejs %>
             <%- include ../partials/footer.ejs %>
             <html>
