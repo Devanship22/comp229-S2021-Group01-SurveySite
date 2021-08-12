@@ -6,7 +6,7 @@ Tanisha Sharma - 301144152, Sabah Hussein - 300882730 Date:14/07/2021 */
     {
         console.log("App started...");
 
-        let deleteButtons = document.querySelectorAll('.btn-danger');
+        let deleteButtons = document.querySelectorAll('.btn-outline-danger');
 
         for(button of deleteButtons)
         {
